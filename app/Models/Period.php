@@ -18,4 +18,13 @@ class Period extends Model
     public function controller(){
         return $this->hasOne(Controller::class);
     }
+    protected static function boot(){
+        parent::boot();
+        static::created(function($period){
+            prueba::create([
+                'period_id'=> $period->id,
+            ]);
+            
+        });
+    }
 }

@@ -13,4 +13,15 @@ class stand extends Model
     public function empadronamietos(){
         return $this->hasMany(Empadronamieto::class);
     }
+   
+    protected static function boot(){
+        parent::boot();
+        static::created(function($stand){
+            prueba::create([
+                'stand_id'=> $stand->id,
+            ]);
+            
+        });
+    }
+    
 }

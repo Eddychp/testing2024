@@ -20,7 +20,7 @@ class StandFactory extends Factory
         return [
             'name'=>$this->faker->name(),
             'status'=>$this->faker->randomElement(['Alquilado', 'Problemas', 'Normal']),
-            'partner_id'=>partner::all()->random()->id,
+            
         ];
     }
 }
